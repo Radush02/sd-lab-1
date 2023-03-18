@@ -2,17 +2,28 @@ import time
 import random
 import sortari
 
+arr=[] #pt merge & radix
 arr_quick=[]
-arr_merge=[]
-for i in range(0,10000):
-    arr_quick.append(random.randint(0,1000000))
-    arr_merge.append(arr_quick[i])
-print(arr_quick)
+for i in range(0,int(1e4)):
+    arr.append(random.randint(0,1000000))
+    arr_quick.append(arr[i])
+
 start=time.time()
-sortari.quickSort(arr_quick,0,len(arr_quick)-1)
-print(arr_quick)
-print(f"Timp quick sort: {time.time() - start}")
+sortari.mergeSort(arr)
+#print(*sortari.mergeSort(arr))
+print(f"Timp merge sort: {(time.time()-start)}")
+
 start=time.time()
-sortari.mergeSort(arr_merge)
-print(arr_merge)
-print(f"Timp merge sort:{(time.time()-start)}")
+try:
+    sortari.quickSort(arr_quick, 0, len(arr) - 1)
+except RecursionError:
+    print("Lista este deja sortata (Quick sort).")
+else:
+    print(f"Timp quick sort: {time.time() - start}")
+
+start=time.time()
+sortari.radix_sort(arr)
+print(f"Timp radix sort: {time.time() - start}")
+
+
+
