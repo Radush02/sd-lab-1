@@ -3,7 +3,6 @@ import random
 import sortari
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.interpolate import make_interp_spline,BSpline
 
 tests=[]
 rez=[[],[],[],[],[]]
@@ -101,10 +100,3 @@ plt.plot(teste,rez[3])
 plt.plot(teste,rez[4])
 plt.legend(["QuickSort","MergeSort","RadixSort","ShellSort","HeapSort"])
 plt.show()
-
-
-#Testele 1 si 2 luate din exemplu
-#Testul 3 arata faptul ca radix sort este mai lent cu cat numerele sunt mai mari (a se compara cu testul 2)
-#Testele 4 si 5 compara rapiditatea quick si merge.
-#Testul 6 va crapa quick sortul prin multe apeluri recursive.
-#Testul 7 va testa daca programul va ramane fara memorie sau nu.
